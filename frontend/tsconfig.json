@@ -2,7 +2,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@hazinahub/*": ["../packages/*/src"],
+      "@hazinahub/types": ["../packages/types/src/index.ts"],
+      "@hazinahub/utils": ["../packages/utils/src/index.ts"],
+      "@hazinahub/*": ["../packages/*/src/index.ts"],
       "@/*": ["src/*"]
     }
   },
