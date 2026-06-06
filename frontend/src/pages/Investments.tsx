@@ -133,7 +133,7 @@ const Investments: React.FC = () => {
 
     try {
       const response = await api.post<ApiResponse<any>>('/portfolio/withdraw', {
-        investmentId: selectedInvestment.id,
+        investment_id: selectedInvestment.id,
         amount: amountNum
       });
 
