@@ -4,7 +4,7 @@ import api, { getOfflineQueueLength, processOfflineQueue } from '../services/api
 import { useAuth } from '../context/AuthContext';
 import type { Transaction, ApiResponse, PaginatedResponse } from '@hazinahub/types';
 import { formatKES, formatDate } from '@hazinahub/utils';
-import { ArrowDownLeft, ArrowUpRight, ShieldCheck, RefreshCw, AlertCircle, CheckCircle, Mic, UploadCloud, FileText, WifiOff } from 'lucide-react';
+import { ArrowDownLeft, ArrowUpRight, RefreshCw, AlertCircle, CheckCircle, Mic, UploadCloud, FileText, WifiOff } from 'lucide-react';
 
 const Mpesa: React.FC = () => {
   const { user, refreshProfile } = useAuth();

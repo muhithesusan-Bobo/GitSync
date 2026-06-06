@@ -335,7 +335,7 @@ const Investments: React.FC = () => {
                 </tr>
               </thead>
               <tbody>
-                {portfolio.investments.map((inv) => (
+                {portfolio.investments.map((inv: Investment) => (
                   <tr key={inv.id}>
                     <td>
                       <div style={{ fontWeight: 600 }}>{(inv as any).fundName}</div>

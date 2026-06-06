@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import api from '../services/api';
-import type { DashboardSummary, ApiResponse } from '@hazinahub/types';
+import type { DashboardSummary, ApiResponse, Transaction } from '@hazinahub/types';
 import { formatKES, formatDate } from '@hazinahub/utils';
 import { Wallet, TrendingUp, DollarSign, BrainCircuit, RefreshCw, AlertCircle, ShieldCheck } from 'lucide-react';
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid, LineChart, Line, Legend } from 'recharts';
@@ -203,7 +203,7 @@ const Dashboard: React.FC = () => {
             {data.recentTransactions.length === 0 ? (
               <div style={{ color: 'var(--text-dark)', textAlign: 'center', padding: '40px 0' }}>No recent transactions</div>
             ) : (
-              data.recentTransactions.map((tx) => (
+              data.recentTransactions.map((tx: Transaction) => (
                 <div key={tx.id} style={{
                   display: 'flex',
                   justifyContent: 'space-between',

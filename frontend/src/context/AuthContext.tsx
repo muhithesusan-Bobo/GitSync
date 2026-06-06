@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import api from '../services/api';
-import type { User, LoginRequest, RegisterRequest, ApiResponse, AuthTokens } from '@hazinahub/types';
+import type { User, LoginRequest, RegisterRequest, ApiResponse } from '@hazinahub/types';
 
 interface AuthContextType {
   user: User | null;
