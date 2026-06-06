@@ -16,8 +16,8 @@
     "lucide-react": "^0.344.0",
     "recharts": "^2.12.0",
     "tesseract.js": "^4.1.1",
-    "@hazinahub/types": "*",
-    "@hazinahub/utils": "*"
+    "@hazinahub/types": "file:../packages/types",
+    "@hazinahub/utils": "file:../packages/utils"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
