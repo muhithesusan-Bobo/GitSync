@@ -41,10 +41,15 @@ PORT = int(os.getenv("API_PORT", 8000))
 NODE_ENV = os.getenv("NODE_ENV", "development")
 FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:5173")
 ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS")
+CORS_ORIGIN_REGEX = os.getenv("CORS_ORIGIN_REGEX", r"https://.*\.vercel\.app")
 
 
 def derive_allowed_origins(frontend_url: str) -> list[str]:
-    origins = [frontend_url]
+    origins = [
+        frontend_url,
+        "https://hazinahub.co.ke",
+        "https://www.hazinahub.co.ke",
+    ]
     parsed = urlparse(frontend_url)
 
     if parsed.hostname in {"localhost", "127.0.0.1"}:
@@ -96,14 +101,13 @@ app = FastAPI(
 # ─── CORS ────────────────────────────────────────────────────
 if ALLOWED_ORIGINS:
     allowed_origins = [origin.strip() for origin in ALLOWED_ORIGINS.split(",") if origin.strip()]
-elif NODE_ENV == "production":
-    allowed_origins = ["https://hazinahub.co.ke"]
 else:
     allowed_origins = derive_allowed_origins(FRONTEND_URL)
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=allowed_origins,
+    allow_origin_regex=CORS_ORIGIN_REGEX,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
